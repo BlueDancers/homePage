@@ -54,6 +54,9 @@ export default {
 
 <style lang="less" scoped>
 .one {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
