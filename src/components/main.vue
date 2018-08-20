@@ -58,11 +58,12 @@ export default {
       clearTimeout(method.tId)
         method.tId = setTimeout(function(){
             method();
-        }, 500);
+        }, 200);
     },
     handleScroll(e) {
       //鼠标监听事件
       //判断鼠标前后滚动
+      
       this.deltay = e.deltaY || e
       this.throttle(this.scrollevent)
       //this.scrollevent()
@@ -154,7 +155,7 @@ export default {
 .faded-enter-active,
 .faded-leave-active {
   //在离开和进入时候的动画时间
-  transition: all 1s;
+  transition: all .6s;
 }
 .faded-enter {
   //进入变成显示
@@ -167,7 +168,7 @@ export default {
 .fades-enter-active,
 .fades-leave-active {
   //在离开和进入时候的动画时间
-  transition: all 1s;
+  transition: all .6s;
 }
 .fades-enter {
   //进入变成显示
