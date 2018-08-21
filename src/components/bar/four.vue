@@ -1,13 +1,125 @@
 <template>
   <div class="four">
-    第四页
+    <div class="four-page">
+      <div class="leftpage">
+        <div class="header">
+          <p>技能清单</p> 
+        </div>
+        <div class="mainCover">   
+          <div class="cover">
+            <img src="../../../static/user.jpg" alt="">
+            <p>有灵感再补</p>
+          </div>
+        </div>
+        <div class="main">
+          <div class="list-text">
+            <div class="list" v-for="(item,index) in leftData" :key="index">
+              <p class="text">
+                {{ item.title }} : {{ item.text }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rigthpage">
+        <div class="header">
+          <p>大体上目前开发技能的掌握程度如下所述</p>
+        </div>
+        <div class="main">
+          <div class="list-text">
+            <div class="list" v-for="(item,index) in rigthData" :key="index">
+              <p class="text">
+                ○ {{ item.text }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    
+export default {
+  data() {
+    return {
+      leftData: [
+        {
+          title: 'Web开发',
+          text: 'JavaScript / html5 / css3 / 小程序 /jquery'
+        },
+        {
+          title: '前端框架',
+          text: 'Vue / mpvue'
+        },
+        {
+          title: 'UI框架',
+          text: 'bootstrap / element-ui'
+        },
+        {
+          title: '前端工具',
+          text: ' webpack / rollup / Less / git'
+        },
+        {
+          title: '数据库',
+          text: 'mysql / mongdb'
+        },
+        {
+          title: '后端开发',
+          text: 'node.js / JavaEE'
+        },
+        {
+          title: '后端框架',
+          text: 'koa2 / SSH(Spring SpringMVC Hibernate)'
+        },
+        {
+          title: '单元测试',
+          text: 'JUnit'
+        },
+        {
+          title: '运维',
+          text: '了解linux / Jenkins / docker(Dockerfile compose rancherHA)'
+        }
+      ],
+      rigthData: [
+        {
+          text:
+            '(HTML) 熟悉HTML标签，理解Dom结构，了解HTML5，CSS3常用属性,flex布局'
+        },
+        {
+          text:
+            '(ES3) 掌握JavaScript基本知识，理解作用域，闭包，原型，原型链等基础知识'
+        },
+        {
+          text: '(ES6) 熟悉ES6相关知识对es6的大致总结'
+        },
+        {
+          text:
+            '(Vue) 熟悉Vue以及Vue全家桶登录模块 购物车模块 商城系统后端开发中'
+        },
+        {
+          text: '(JavaWeb) 了解javaWeb，开发参与过ssh的网盘系统'
+        },
+        {
+          text: '(Native) 了解媒体查询，做过两个以上小程序项目'
+        },
+        {
+          text:
+            '(Node) 使用Node写过一些后端，熟悉koa2框架以及koa2的中间件编写方式'
+        },
+        {
+          text:
+            '(HTTP) 理解HTTP基础知识，常见响应吗http缓存等知识，理解RESTful API'
+        },
+        {
+          text:
+            '(Other) 了解Linux命令行操作，了解git版本控制，了解webpack/rollup基本配置'
+        }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="less" scoped>
@@ -17,10 +129,174 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:slategray;
+  background-image: linear-gradient(
+    -225deg,
+    #473b7b 0%,
+    #3584a7 51%,
+    #30d2be 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  .four-page {
+    width: 90%; //整体是页面的80%
+    height: 700px;
+    min-height: 650px;
+    display: flex; //定制css
+    .leftpage {
+      //左页
+      z-index: 10;
+      //覆盖右页
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      animation: pagerotateleft 5s ease-in 0s 1 normal forwards;
+      transform: translate3d(0, 0, 0);
+      //性能優化
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: right;
+    }
+    @keyframes pagerotateleft {
+      0% {
+        -webkit-transform: rotateY(180deg);
+      }
+      100% {
+        -webkit-transform: rotateY(0deg);
+      }
+    }
+    .rigthpage {
+      //右页
+      right: 5%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      animation: pagerotateright 5s ease-in 0s 1 normal forwards;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: left;
+    }
+    @keyframes pagerotateright {
+      from {
+        -webkit-transform: rotateY(-60deg);
+      }
+      to {
+        -webkit-transform: rotateY(0deg);
+      }
+    }
+    //下面为公共css
+    .rigthpage,
+    .leftpage {
+      height: 90%;
+      position: absolute;
+      color: black;
+      background: white;
+      width: 45%;
+      .header {
+        margin-top: 40px;
+        display: inline-block;
+        animation: showdappear 5s ease-in 0s normal forwards;
+        p {
+          font-size: 25px;
+          position: relative;
+          left: 30px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .mainCover {
+        position: absolute;
+        animation: showdisappear 5s ease-in 0s normal forwards;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        .cover {
+          position: absolute;
+          left: 30%;
+          top: 30%;
+          width: 40%;
+          height: 40%;
+          text-align: center;
+          line-height: 270px;
+          img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+          }
+        }
+      }
+      .main {
+        animation: showdappear 5s ease-in 0s normal forwards;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        .list-text {
+          height: 80%;
+          position: relative;
+          top: 40px;
+          width: 90%;
+          color: black;
+          border-radius: 3px;
+          .list {
+            border-bottom: 1px dashed transparent;
+            background: linear-gradient(white, white) padding-box,
+              repeating-linear-gradient(
+                -45deg,
+                #ccc 0,
+                #ccc 0.25em,
+                white 0,
+                white 0.75em
+              );
+            .text {
+              position: relative;
+              left: 20px;
+              font-size: 16px;
+              line-height: 55px;
+              padding: 1em;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          .list:first-child {
+            border-top: 1px dashed transparent;
+            background: linear-gradient(white, white) padding-box,
+              repeating-linear-gradient(
+                -45deg,
+                #ccc 0,
+                #ccc 0.25em,
+                white 0,
+                white 0.75em
+              );
+          }
+        }
+      }
+      @keyframes showdisappear {
+        //消失
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        65% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes showdappear {
+        //出现
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -52,8 +52,8 @@ export default {
           text: 'wu.vkcyan@gmail.com'
         },
         {
-          img: '../../../static/two/上海.png',
-          text: '上海'
+          img: '../../../static/two/获奖.png',
+          text: '先电云计算大赛全国一等奖'
         }
       ]
     }
