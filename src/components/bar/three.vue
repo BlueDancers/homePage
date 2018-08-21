@@ -35,15 +35,15 @@ export default {
         },
         {
           img: '../../../static/three/javascript.png',
-          text: 'JavaScript'
+          text: 'JavaScript,ES6'
         },
         {
           img: '../../../static/three/java.png',
-          text: 'Java'
+          text: 'Java,JavaWeb'
         },
         {
           img: '../../../static/three/wecart.jpg',
-          text: '小程序'
+          text: '微信小程序'
         },
         {
           img: '../../../static/three/node.svg',
@@ -51,7 +51,7 @@ export default {
         },
         {
           img: '../../../static/three/database.png',
-          text: 'database'
+          text: 'mysql,mongoDB'
         },
         {
           img: '../../../static/three/docker.png',
@@ -93,100 +93,327 @@ export default {
     width: 100%;
     display: flex;
     justify-content: center;
-    .cardlist {
-      //基本图标主题布局设置
-      width: 80%;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      .list {
-        .list-img {
-          margin: 30px 50px;
-          background-color: white;
-          box-shadow: 0 3px 10px rgb(97, 95, 95);
-          //每一个布局设置
-          border-radius: 50%;
-          width: 180px;
-          height: 180px;
-          text-align: center;
-          line-height: 180px;
-          img {
-            width: 130px;
-          }
-        }
-      }
-      .list:nth-child(1) {
-        .list-img {
-          background-color: white;
-        }
-      }
-      .list:nth-child(2) {
-        .list-img {
-          background-color: white;
-        }
-      }
-      .list:nth-child(3) {
-        .list-img {
-          background-color: yellow;
-          img {
-            width: 150px;
-          }
-        }
-      }
-      .list:nth-child(4) {
-        .list-img {
-          background-color: rgb(46, 60, 70);
-          img {
-            width: 100px;
-          }
-        }
-      }
-      .list:nth-child(5) {
-        .list-img {
-          background-color: white;
-          img {
-            position: relative;
-            bottom: 1px;
+    @media screen and (min-width: 950px) {
+      .cardlist {
+        //基本图标主题布局设置
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .list {
+          .list-img {
+            margin: 30px 50px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgb(97, 95, 95);
+            transition: all 0.5s;
+            //每一个布局设置
             border-radius: 50%;
             width: 180px;
+            height: 180px;
+            text-align: center;
+            line-height: 180px;
+            img {
+              width: 130px;
+            }
           }
         }
-      }
-      .list:nth-child(6) {
-        .list-img {
-          background-color: rgb(51, 51, 51);
+        .list:nth-child(1) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(2) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(3) {
+          .list-img {
+            background-color: yellow;
+            img {
+              width: 150px;
+            }
+          }
+        }
+        .list:nth-child(4) {
+          .list-img {
+            background-color: rgb(46, 60, 70);
+            img {
+              width: 100px;
+            }
+          }
+        }
+        .list:nth-child(5) {
+          .list-img {
+            background-color: white;
+            img {
+              position: relative;
+              bottom: 1px;
+              border-radius: 50%;
+              width: 180px;
+            }
+          }
+        }
+        .list:nth-child(6) {
+          .list-img {
+            background-color: rgb(51, 51, 51);
+          }
+        }
+        .list:nth-child(7) {
+          .list-img {
+            background-color: rgb(229, 235, 245);
+          }
+        }
+        .list:nth-child(8) {
+          .list-img {
+            background-color: rgb(228, 245, 255);
+          }
+        }
+        .isShowText {
+          position: relative;
+          bottom: -50px;
+          text-align: center;
+          padding: 0 30px;
+          opacity: 0;
+          transition: all 0.5s;
+          transition-timing-function: ease-out;
+          p {
+            line-height: 40px;
+            border-radius: 5px;
+            color: black;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgb(97, 95, 95);
+          }
+        }
+
+        .list:hover .isShowText {
+          //animation: isShow .3s ease-in 0s 1 normal forwards;
+          opacity: 1;
+          position: relative;
+          bottom: 1px;
+        }
+        .list-img:hover {
+          box-shadow: 0 5px 20px rgb(92, 90, 90);
         }
       }
-      .list:nth-child(7) {
-        .list-img {
-          background-color: rgb(229, 235, 245);
-        }
-      }
-      .list:nth-child(8) {
-        .list-img {
-          background-color: rgb(228, 245, 255);
-        }
-      }
-      .isShowText {
+    }
+    @media screen and (max-width: 950px) {
+      .cardlist {
+        //基本图标主题布局设置
         position: relative;
-        bottom: -50px;
-        text-align: center;
-        padding: 0 30px;
-        opacity: 0;
-        transition: all .5s;
-        transition-timing-function: ease-out;
-        p {
-          line-height: 40px;
-          border-radius: 5px;
-          color: black;
-          background-color: white;
+        bottom: 40px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .list {
+          .list-img {
+            margin: 10px 25px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgb(97, 95, 95);
+            transition: all 0.5s;
+            //每一个布局设置
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            text-align: center;
+            line-height: 90px;
+            img {
+              width: 50px;
+            }
+          }
+        }
+        .list:nth-child(1) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(2) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(3) {
+          .list-img {
+            background-color: yellow;
+            img {
+              width: 80px;
+            }
+          }
+        }
+        .list:nth-child(4) {
+          .list-img {
+            background-color: rgb(46, 60, 70);
+            img {
+              width: 40px;
+            }
+          }
+        }
+        .list:nth-child(5) {
+          .list-img {
+            background-color: white;
+            img {
+              position: relative;
+              bottom: 1px;
+              border-radius: 50%;
+              width: 90px;
+            }
+          }
+        }
+        .list:nth-child(6) {
+          .list-img {
+            background-color: rgb(51, 51, 51);
+          }
+        }
+        .list:nth-child(7) {
+          .list-img {
+            background-color: rgb(229, 235, 245);
+          }
+          .isShowText {
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+        .list:nth-child(8) {
+          .list-img {
+            background-color: rgb(228, 245, 255);
+          }
+        }
+        .isShowText {
+          position: relative;
+          bottom: -50px;
+          text-align: center;
+          opacity: 0;
+          transition: all 0.5s;
+          transition-timing-function: ease-out;
+          p {
+            line-height: 20px;
+            border-radius: 5px;
+            color: black;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgb(97, 95, 95);
+          }
+        }
+
+        .list:hover .isShowText {
+          //animation: isShow .3s ease-in 0s 1 normal forwards;
+          opacity: 1;
+          position: relative;
+          bottom: 0px;
+        }
+        .list-img:hover {
+          box-shadow: 0 5px 20px rgb(92, 90, 90);
         }
       }
-      .list:hover .isShowText {
-        //animation: isShow .3s ease-in 0s 1 normal forwards;
-        opacity: 1;
+    }
+    @media screen and (max-width: 320px) {
+      .cardlist {
+        //基本图标主题布局设置
         position: relative;
-        bottom: 1px;
+        bottom: 50px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .list {
+          .list-img {
+            margin: 5px 20px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgb(97, 95, 95);
+            transition: all 0.5s;
+            //每一个布局设置
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            img {
+              width: 50px;
+            }
+          }
+        }
+        .list:nth-child(1) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(2) {
+          .list-img {
+            background-color: white;
+          }
+        }
+        .list:nth-child(3) {
+          .list-img {
+            background-color: yellow;
+            img {
+              width: 75px;
+            }
+          }
+        }
+        .list:nth-child(4) {
+          .list-img {
+            background-color: rgb(46, 60, 70);
+            img {
+              width: 40px;
+            }
+          }
+        }
+        .list:nth-child(5) {
+          .list-img {
+            background-color: white;
+            img {
+              position: relative;
+              bottom: 1px;
+              border-radius: 50%;
+              width: 80px;
+            }
+          }
+        }
+        .list:nth-child(6) {
+          .list-img {
+            background-color: rgb(51, 51, 51);
+          }
+        }
+        .list:nth-child(7) {
+          .list-img {
+            background-color: rgb(229, 235, 245);
+          }
+          .isShowText {
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+        .list:nth-child(8) {
+          .list-img {
+            background-color: rgb(228, 245, 255);
+          }
+        }
+        .isShowText {
+          position: relative;
+          bottom: -40px;
+          text-align: center;
+          opacity: 0;
+          transition: all 0.5s;
+          transition-timing-function: ease-out;
+          p {
+            line-height: 20px;
+            border-radius: 5px;
+            color: black;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgb(97, 95, 95);
+          }
+        }
+
+        .list:hover .isShowText {
+          //animation: isShow .3s ease-in 0s 1 normal forwards;
+          opacity: 1;
+          position: relative;
+        }
+        .list-img:hover {
+          box-shadow: 0 5px 20px rgb(92, 90, 90);
+        }
       }
     }
   }
