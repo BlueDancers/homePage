@@ -16,6 +16,9 @@
         <transition :name="deltay > 0?'faded':'fades'">
           <five v-show="page == 5"></five>
         </transition>
+        <transition :name="deltay > 0?'faded':'fades'">
+          <six v-show="page == 6"></six>
+        </transition>
     </div>
     <div class="left">
       <ul>
@@ -33,6 +36,7 @@ import two from './bar/two'
 import three from './bar/three'
 import four from './bar/four'
 import five from './bar/five'
+import six from './bar/six'
 export default {
   mounted() {
     this.pages = document.getElementsByClassName('pages')[0].childElementCount //动态获取当前组件数量 也就是pages里面的子元素的数量
@@ -42,7 +46,8 @@ export default {
     two,
     three,
     four,
-    five
+    five,
+    six
   },
   data() {
     return {
@@ -72,7 +77,7 @@ export default {
       if (this.deltay > 0) {
         //鼠标向下滚动
         let page = this.page
-        if (page != 5) {
+        if (page != this.pages) {
           this.page++
         } else {
           this.page = 1
@@ -82,7 +87,7 @@ export default {
         if (page != 1) {
           this.page--
         } else {
-          this.page = 5
+          this.page = this.pages
         }
       }
     },
@@ -117,7 +122,9 @@ export default {
 <style lang="less" scoped>
 #main {
   .pages {
-    overflow-y: hidden; //禁止滚动条的出现
+     //禁止滚动条的出现
+    overflow-x:hidden;
+    overflow-y:hidden;
     position: absolute;
     top: 0;
     left: 0;

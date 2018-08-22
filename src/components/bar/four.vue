@@ -149,7 +149,7 @@ export default {
         z-index: 10; //覆盖右页
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-        animation: pagerotateleft 5s ease-in 0s 1 normal forwards;
+        animation: pagerotateleft 3s ease-in 0s 1 normal forwards;
         transform: translate3d(0, 0, 0);
         //性能优化
         -webkit-transform-style: preserve-3d;
@@ -169,13 +169,13 @@ export default {
         right: 5%;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        animation: pagerotateright 5s ease-in 0s 1 normal forwards;
+        animation: pagerotateright 3s ease-in 0s 1 normal forwards;
         -webkit-transform-style: preserve-3d;
         -webkit-transform-origin: left;
       }
       @keyframes pagerotateright {
         from {
-          -webkit-transform: rotateY(-60deg);
+          -webkit-transform: rotateY(-0deg);
         }
         to {
           -webkit-transform: rotateY(0deg);
@@ -193,7 +193,7 @@ export default {
           width: 80%;
           margin-top: 40px;
           display: inline-block;
-          animation: showdappear 5s ease-in 0s normal forwards;
+          animation: showdappear 3s ease-in 0s normal forwards;
           p {
             font-size: 25px;
             position: relative;
@@ -205,7 +205,7 @@ export default {
         }
         .mainCover {
           position: absolute;
-          animation: showdisappear 5s ease-in 0s normal forwards;
+          animation: showdisappear 3s ease-in 0s normal forwards;
           width: 100%;
           height: 100%;
           bottom: 0;
@@ -226,7 +226,7 @@ export default {
           }
         }
         .main {
-          animation: showdappear 5s ease-in 0s normal forwards;
+          animation: showdappear 3s ease-in 0s normal forwards;
           height: 80%;
           display: flex;
           justify-content: center;
