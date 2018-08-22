@@ -4,7 +4,7 @@
       <div class="main_photo_text">
         <div class="main_photo">
           <div class="photo">
-            <img src="../../../static/user.jpg" alt=" ">
+            <img src="../../../static/one/user.jpg" alt=" ">
           </div>
           
         </div>
@@ -26,19 +26,19 @@ export default {
     return {
       imgs: [
         {
-          img: '../../../static/github.png',
+          img: '../../../static/one/github.png',
           address: 'https://github.com/vkcyan'
         },
         {
-          img: '../../../static/blog.png',
+          img: '../../../static/one/blog.png',
           address: 'https://vkcyan.github.io/'
         },
         {
-          img: '../../../static/博客园.png',
+          img: '../../../static/one/博客园.png',
           address: 'https://www.cnblogs.com/wuvkcyan/'
         },
         {
-          img: '../../../static/知乎.png',
+          img: '../../../static/one/知乎.png',
           address: 'https://www.zhihu.com/people/zhang-zui-zhang-zui-zuo-zuo-zuo-zuo-zuo/activities'
         }
       ]

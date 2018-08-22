@@ -7,7 +7,7 @@
         </div>
         <div class="mainCover">   
           <div class="cover">
-            <img src="../../../static/user.jpg" alt="">
+            <img src="../../../static/one/user.jpg" alt="">
             <p>有灵感再补</p>
           </div>
         </div>
@@ -123,177 +123,372 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.four {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    -225deg,
-    #473b7b 0%,
-    #3584a7 51%,
-    #30d2be 100%
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .four-page {
-    width: 90%; //整体是页面的80%
-    height: 700px;
-    min-height: 650px;
-    display: flex; //定制css
-    .leftpage {
-      //左页
-      z-index: 10;
-      //覆盖右页
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      animation: pagerotateleft 5s ease-in 0s 1 normal forwards;
-      transform: translate3d(0, 0, 0);
-      //性能優化
-      -webkit-transform-style: preserve-3d;
-      -webkit-transform-origin: right;
-    }
-    @keyframes pagerotateleft {
-      0% {
-        -webkit-transform: rotateY(180deg);
+@media screen and (min-width: 750px) {
+  .four {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      -225deg,
+      #473b7b 0%,
+      #3584a7 51%,
+      #30d2be 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .four-page {
+      width: 90%; //整体是页面的80%
+      height: 700px;
+      min-height: 650px;
+      display: flex; //定制css
+      .leftpage {
+        box-shadow: -5px 2px 20px 1px #4d4a4a; //左页
+        z-index: 10; //覆盖右页
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        animation: pagerotateleft 5s ease-in 0s 1 normal forwards;
+        transform: translate3d(0, 0, 0);
+        //性能优化
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform-origin: right;
       }
-      100% {
-        -webkit-transform: rotateY(0deg);
-      }
-    }
-    .rigthpage {
-      //右页
-      right: 5%;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      animation: pagerotateright 5s ease-in 0s 1 normal forwards;
-      -webkit-transform-style: preserve-3d;
-      -webkit-transform-origin: left;
-    }
-    @keyframes pagerotateright {
-      from {
-        -webkit-transform: rotateY(-60deg);
-      }
-      to {
-        -webkit-transform: rotateY(0deg);
-      }
-    }
-    //下面为公共css
-    .rigthpage,
-    .leftpage {
-      height: 90%;
-      position: absolute;
-      color: black;
-      background: white;
-      width: 45%;
-      .header {
-        margin-top: 40px;
-        display: inline-block;
-        animation: showdappear 5s ease-in 0s normal forwards;
-        p {
-          font-size: 25px;
-          position: relative;
-          left: 30px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+      @keyframes pagerotateleft {
+        0% {
+          -webkit-transform: rotateY(180deg);
+        }
+        100% {
+          -webkit-transform: rotateY(0deg);
         }
       }
-      .mainCover {
+      .rigthpage {
+        //右页
+        box-shadow: 2px 2px 20px 1px #4d4a4a;
+        right: 5%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        animation: pagerotateright 5s ease-in 0s 1 normal forwards;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform-origin: left;
+      }
+      @keyframes pagerotateright {
+        from {
+          -webkit-transform: rotateY(-60deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+        }
+      }
+      //下面为公共css
+      .rigthpage,
+      .leftpage {
+        height: 90%;
         position: absolute;
-        animation: showdisappear 5s ease-in 0s normal forwards;
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        left: 0;
-        .cover {
-          position: absolute;
-          left: 30%;
-          top: 30%;
-          width: 40%;
-          height: 40%;
-          text-align: center;
-          line-height: 270px;
-          img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+        color: black;
+        background: white;
+        width: 45%;
+        .header {
+          width: 80%;
+          margin-top: 40px;
+          display: inline-block;
+          animation: showdappear 5s ease-in 0s normal forwards;
+          p {
+            font-size: 25px;
+            position: relative;
+            left: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
         }
-      }
-      .main {
-        animation: showdappear 5s ease-in 0s normal forwards;
-        height: 80%;
-        display: flex;
-        justify-content: center;
-        .list-text {
-          height: 80%;
-          position: relative;
-          top: 40px;
-          width: 90%;
-          color: black;
-          border-radius: 3px;
-          .list {
-            border-bottom: 1px dashed transparent;
-            background: linear-gradient(white, white) padding-box,
-              repeating-linear-gradient(
-                -45deg,
-                #ccc 0,
-                #ccc 0.25em,
-                white 0,
-                white 0.75em
-              );
-            .text {
-              position: relative;
-              left: 20px;
-              font-size: 16px;
-              line-height: 55px;
-              padding: 1em;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
+        .mainCover {
+          position: absolute;
+          animation: showdisappear 5s ease-in 0s normal forwards;
+          width: 100%;
+          height: 100%;
+          bottom: 0;
+          left: 0;
+          .cover {
+            position: absolute;
+            left: 30%;
+            top: 30%;
+            width: 40%;
+            height: 40%;
+            text-align: center;
+            line-height: 270px;
+            img {
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
             }
           }
-          .list:first-child {
-            border-top: 1px dashed transparent;
-            background: linear-gradient(white, white) padding-box,
-              repeating-linear-gradient(
-                -45deg,
-                #ccc 0,
-                #ccc 0.25em,
-                white 0,
-                white 0.75em
-              );
+        }
+        .main {
+          animation: showdappear 5s ease-in 0s normal forwards;
+          height: 80%;
+          display: flex;
+          justify-content: center;
+          .list-text {
+            height: 80%;
+            position: relative;
+            top: 40px;
+            width: 90%;
+            color: black;
+            border-radius: 3px;
+            .list {
+              border-bottom: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+              .text {
+                position: relative;
+                left: 20px;
+                font-size: 16px;
+                line-height: 55px;
+                padding: 1em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .list:first-child {
+              border-top: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+            }
+          }
+        }
+        @keyframes showdisappear {
+          //消失
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 1;
+          }
+          65% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+        @keyframes showdappear {
+          //出现
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
           }
         }
       }
-      @keyframes showdisappear {
-        //消失
-        0% {
-          opacity: 1;
+    }
+  }
+}
+@media screen and (max-width: 750px) and (min-width: 500px) {
+  .four {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      -225deg,
+      #473b7b 0%,
+      #3584a7 51%,
+      #30d2be 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .four-page {
+      width: 90%; //整体是页面的80%
+      min-height: 650px;
+      display: flex; //定制css
+      justify-content: center;
+      .rigthpage {
+        display: none;
+      } //下面为公共css
+      .leftpage {
+        box-shadow: 0px 2px 20px 1px #4d4a4a;
+        //左页
+        z-index: 10; //覆盖右页
+        border-radius: 10px;
+        color: black;
+        background: white;
+        width: 90%;
+        .header {
+          width: 80%;
+          margin-top: 40px;
+          display: inline-block;
+          p {
+            font-size: 25px;
+            position: relative;
+            left: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
         }
-        50% {
-          opacity: 1;
+        .mainCover {
+          display: none;
         }
-        65% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 0;
+        .main {
+          height: 80%;
+          display: flex;
+          justify-content: center;
+          .list-text {
+            height: 80%;
+            position: relative;
+            top: 40px;
+            width: 90%;
+            color: black;
+            border-radius: 3px;
+            .list {
+              border-bottom: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+              .text {
+                position: relative;
+                left: 20px;
+                font-size: 16px;
+                line-height: 55px;
+                padding: 1em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .list:first-child {
+              border-top: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+            }
+          }
         }
       }
-      @keyframes showdappear {
-        //出现
-        0% {
-          opacity: 0;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .four {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      -225deg,
+      #473b7b 0%,
+      #3584a7 51%,
+      #30d2be 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .four-page {
+      width: 90%; //整体是页面的80%
+      height: 80%;
+      display: flex; //定制css
+      justify-content: center;
+      min-height: 500px;
+      .rigthpage {
+        display: none;
+      }
+      //下面为公共css
+      .leftpage {
+        box-shadow: 0px 2px 20px 1px #4d4a4a;
+        //左页
+        z-index: 10; //覆盖右页
+        border-radius: 10px;
+        color: black;
+        background: white;
+        width: 95%;
+        .header {
+          width: 80%;
+          margin-top: 40px;
+          display: inline-block;
+          p {
+            font-size: 25px;
+            position: relative;
+            left: 30px;
+          }
         }
-        50% {
-          opacity: 0;
+        .mainCover {
+          display: none;
         }
-        100% {
-          opacity: 1;
+        .main {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          .list-text {
+            height: 80%;
+            position: relative;
+            top: 40px;
+            width: 90%;
+            color: black;
+            border-radius: 3px;
+            .list {
+              border-bottom: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+              .text {
+                position: relative;
+                left: 5px;
+                font-size: 15px;
+                line-height: 40px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .list:first-child {
+              border-top: 1px dashed transparent;
+              background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(
+                  -45deg,
+                  #ccc 0,
+                  #ccc 0.25em,
+                  white 0,
+                  white 0.75em
+                );
+            }
+          }
         }
       }
     }
