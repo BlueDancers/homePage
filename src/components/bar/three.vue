@@ -180,7 +180,7 @@ export default {
           p {
             line-height: 40px;
             border-radius: 5px;
-            color: black;
+            color: rgb(86, 98, 112);
             background-color: white;
             box-shadow: 0px 2px 5px rgb(97, 95, 95);
           }

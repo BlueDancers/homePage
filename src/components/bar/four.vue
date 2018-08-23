@@ -235,7 +235,7 @@ export default {
             position: relative;
             top: 40px;
             width: 90%;
-            color: black;
+            color: rgb(86, 98, 112);
             border-radius: 3px;
             .list {
               border-bottom: 1px dashed transparent;
