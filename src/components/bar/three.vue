@@ -78,17 +78,34 @@ export default {
   background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
   flex-wrap: wrap;
   color: white;
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0px;
-    .header-text {
-      p {
-        font-size: 45px;
+  @media screen and (min-width: 600px) {
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0px;
+      .header-text {
+        p {
+          font-size: 45px;
+        }
       }
     }
   }
+  @media screen and (max-width: 599px) {
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      .header-text {
+        p {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  
   .main {
     width: 100%;
     display: flex;
@@ -208,7 +225,7 @@ export default {
         flex-wrap: wrap;
         .list {
           .list-img {
-            margin: 10px 25px;
+            margin: 5px 20px;
             background-color: white;
             box-shadow: 0 3px 10px rgb(97, 95, 95);
             transition: all 0.5s;

@@ -417,10 +417,10 @@ export default {
     align-items: center;
     .four-page {
       width: 90%; //整体是页面的80%
-      height: 80%;
+      height: 70%;
       display: flex; //定制css
       justify-content: center;
-      min-height: 500px;
+      min-height: 400px;
       .rigthpage {
         display: none;
       }
@@ -435,7 +435,7 @@ export default {
         width: 95%;
         .header {
           width: 80%;
-          margin-top: 40px;
+          margin-top: 20px;
           display: inline-block;
           p {
             font-size: 25px;
@@ -453,7 +453,7 @@ export default {
           .list-text {
             height: 80%;
             position: relative;
-            top: 40px;
+            top: 20px;
             width: 90%;
             color: black;
             border-radius: 3px;
@@ -470,8 +470,8 @@ export default {
               .text {
                 position: relative;
                 left: 5px;
-                font-size: 15px;
-                line-height: 40px;
+                font-size: 12px;
+                line-height: 30px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;

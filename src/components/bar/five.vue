@@ -1,12 +1,9 @@
 <template>
-  <div class="five">
+  <div class="five" @touchstart="touchstart" @touchend="touchend">
     <div class="pages">
       <div class="header">
         <p>项目与作品</p>
       </div>
-
-
-
       <div class="card">
         <div class="card-list">
           <transition-group name="fade"> 
@@ -26,7 +23,7 @@
               </div>
               <div class="card-list-button">
                 <button>
-                  <img src="../../../static/five/查看.png">
+                  <img src="../../../static/five/look.png">
                 </button>
               </div>
           </div>
@@ -46,10 +43,10 @@
         <div class="direction-list">
           <div>
             <div class="direction-add">
-              <img src="../../../static/five/左.png" alt="" @click="tablebar('add')">
+              <img src="../../../static/five/left.png" alt="" @click="tablebar('add')">
             </div>
             <div class="direction-less">
-              <img src="../../../static/five/右.png" alt=""  @click="tablebar('less')">
+              <img src="../../../static/five/right.png" alt=""  @click="tablebar('less')">
             </div>
           </div>
         </div>
@@ -64,6 +61,8 @@ export default {
   data() {
     return {
       show: 0,
+      mousedownevent: 0,
+      mouseupevent: 0,
       list: [
         {
           img: '../../../static/five/mpvue.png',
@@ -114,6 +113,22 @@ export default {
     },
     gotoGithub() {
       location.href = 'https://github.com/vkcyan'
+    },
+    touchstart(e) {
+      this.mousedownevent = e.targetTouches[0].clientX
+    },
+    touchend(e) {
+      this.mouseupevent = e.changedTouches[0].clientX
+
+      let result = this.mouseupevent - this.mousedownevent
+      console.log(result)
+
+      if (result > 0 && result > 80) {
+        this.tablebar('add')
+      }
+      if (result < 0 && result < -80) {
+        this.tablebar('less')
+      }
     }
   }
 }
@@ -132,7 +147,7 @@ export default {
   justify-content: center;
   .pages {
     width: 100%;
-    @media screen and (min-width: 375px) {
+    @media screen and (min-width: 376px) {
       .header {
         margin-top: 15px;
         text-align: center;
@@ -143,11 +158,10 @@ export default {
       }
     }
 
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 376px) {
       .header {
-        margin-top: 15px;
+        margin-top: 10px;
         text-align: center;
-        margin-bottom: 20px;
         p {
           font-size: 30px;
         }
@@ -286,10 +300,10 @@ export default {
             border-radius: 8px;
             color: rgb(86, 98, 112);
             position: absolute;
-            width: 60%;
-            height: 500px;
+            width: 80%;
+            height: 420px;
             top: 13%;
-            left: 20%;
+            left: 10%;
             .card-list-image {
               margin-top: 40px;
               text-align: center;
@@ -302,7 +316,7 @@ export default {
               margin-top: 20px;
               p {
                 text-align: center;
-                font-size: 15px;
+                font-size: 12px;
               }
             }
             .card-list-text {
@@ -352,10 +366,10 @@ export default {
             border-radius: 8px;
             color: rgb(86, 98, 112);
             position: absolute;
-            width: 60%;
-            height: 420px;
+            width: 80%;
+            height: 350px;
             top: 13%;
-            left: 20%;
+            left: 10%;
             .card-list-image {
               margin-top: 40px;
               text-align: center;
@@ -385,7 +399,7 @@ export default {
                   overflow: hidden;
                   display: -webkit-box;
                   -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 2;
+                  -webkit-line-clamp: 1;
                 }
               }
             }
@@ -480,7 +494,7 @@ export default {
         justify-content: center;
         align-items: center;
         position: relative;
-        top: 78%;
+        top: 70%;
         button {
           display: inline-block;
           background-color: white;
@@ -512,7 +526,7 @@ export default {
         justify-content: center;
         align-items: center;
         position: relative;
-        top: 75%;
+        top: 68%;
         button {
           display: inline-block;
           background-color: white;
@@ -545,37 +559,45 @@ export default {
       border: 1px white solid;
       background-color: white;
     }
-    .direction {
-      position: absolute;
-      width: 100%;
-      bottom: 47%;
-      .direction-list {
-        display: flex;
-        justify-content: center;
-        div {
+    @media screen and (max-width: 499px) {
+      .direction {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 500px) {
+      .direction {
+        position: absolute;
+        width: 100%;
+        bottom: 47%;
+        .direction-list {
           display: flex;
-          justify-content: space-between;
-          width: 92%;
-          transition: all 1s;
-          .direction-add {
-            img {
-              transition: all 0.5s;
-              height: 50px;
+          justify-content: center;
+          div {
+            display: flex;
+            justify-content: space-between;
+            width: 92%;
+            transition: all 1s;
+            .direction-add {
+              img {
+                transition: all 0.5s;
+                height: 50px;
+              }
             }
-          }
-          .direction-less {
-            position: relative;
-            left: 10px;
-            img {
-              transition: all 0.5s;
-              position: absolute;
-              right: 0px;
-              height: 50px;
+            .direction-less {
+              position: relative;
+              left: 10px;
+              img {
+                transition: all 0.5s;
+                position: absolute;
+                right: 0px;
+                height: 50px;
+              }
             }
           }
         }
       }
     }
+
     .direction-add img:hover {
       padding-left: 10px;
     }
@@ -594,6 +616,16 @@ export default {
   transform: translateX(1100px);
 }
 .fade-leave-to {
+  transform: translateX(-1100px);
+}
+.fades-enter-active,
+.fades-leave-active {
+  transition: all 1s;
+}
+.fades-enter {
+  transform: translateX(1100px);
+}
+.fades-leave-to {
   transform: translateX(-1100px);
 }
 </style>

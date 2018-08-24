@@ -32,27 +32,27 @@ export default {
     return {
       information: [
         {
-          img: '../../../static/two/生日.png',
+          img: '../../../static/two/birthday.png',
           text: '1998.11.30'
         },
         {
-          img: '../../../static/two/大学.png',
+          img: '../../../static/two/university.png',
           text: '专科 计算机应用'
         },
         {
-          img: '../../../static/two/合肥.png',
+          img: '../../../static/two/hefei.png',
           text: '安徽 合肥'
         },
         {
-          img: '../../../static/two/手机.png',
+          img: '../../../static/two/phone.png',
           text: '173xxxx6635(安徽)'
         },
         {
-          img: '../../../static/two/邮箱.png',
+          img: '../../../static/two/mailbox.png',
           text: 'wu.vkcyan@gmail.com'
         },
         {
-          img: '../../../static/two/获奖.png',
+          img: '../../../static/two/award.png',
           text: '先电云计算大赛全国一等奖'
         }
       ]
@@ -79,12 +79,23 @@ export default {
     top: 10%;
     width: 100%;
     height: 100%;
-    .header {
-      display: flex;
-      justify-content: center;
-      font-size: 45px;
-      padding-bottom: 40px;
+    @media screen and (min-width: 950px) {
+      .header {
+        display: flex;
+        justify-content: center;
+        font-size: 45px;
+        padding-bottom: 40px;
+      }
     }
+    @media screen and (max-width: 950px) {
+      .header {
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        padding-bottom: 40px;
+      }
+    }
+
     .main {
       max-width: 100%;
       display: flex;
@@ -162,7 +173,8 @@ export default {
                 }
               }
             }
-            .relevant-icon-text:last-child{   //最后一个清除下划线
+            .relevant-icon-text:last-child {
+              //最后一个清除下划线
               border-bottom: 0px solid #ebedee;
             }
           }

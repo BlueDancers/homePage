@@ -1,5 +1,5 @@
 <template>
-  <div id="main" @mousewheel="handleScroll" @mousedown="mousedown" @mouseup="mouseup">
+  <div id="main" @mousewheel="handleScroll" @mousedown="mousedown" @mouseup="mouseup" @touchstart="touchstart" @touchend="touchend">
     <div class="pages">
         <transition :name="deltay > 0?'faded':'fades'">
           <one v-show="page == 1"></one>
@@ -59,16 +59,17 @@ export default {
     }
   },
   methods: {
-    throttle(method) {   //函数节流
+    throttle(method) {
+      //函数节流
       clearTimeout(method.tId)
-        method.tId = setTimeout(function(){
-            method();
-        }, 200);
+      method.tId = setTimeout(function() {
+        method()
+      }, 200)
     },
     handleScroll(e) {
       //鼠标监听事件
       //判断鼠标前后滚动
-      
+
       this.deltay = e.deltaY || e
       this.throttle(this.scrollevent)
       //this.scrollevent()
@@ -97,6 +98,7 @@ export default {
     },
     mousedown(e) {
       this.mousedownevent = e.screenY
+      
     },
     mouseup(e) {
       this.mouseupevent = e.screenY
@@ -104,15 +106,27 @@ export default {
       //因为还要防止不小心触碰事件
       if (result > 0) {
         //在handleScroll里面设置>0是向下滚动,所以应该是数据应该取反处理一下
-        console.log(result)
         if (result > 80) {
           this.handleScroll(result)
         }
       } else {
         if (result < -80) {
           this.handleScroll(result)
-          console.log('上拉事件')
         }
+      }
+    },
+    touchstart(e) {
+      this.mousedownevent = e.targetTouches[0].clientY
+    },
+    touchend(e) {
+      this.mouseupevent = e.changedTouches[0].clientY
+      let result = -(this.mouseupevent - this.mousedownevent)
+      this.deltay = result
+      if (result > 0 && result > 80) {
+        this.throttle(this.scrollevent)
+      }
+      if(result < 0 && result < -80){
+        this.throttle(this.scrollevent)
       }
     }
   }
@@ -122,9 +136,9 @@ export default {
 <style lang="less" scoped>
 #main {
   .pages {
-     //禁止滚动条的出现
-    overflow-x:hidden;
-    overflow-y:hidden;
+    //禁止滚动条的出现
+    overflow-x: hidden;
+    overflow-y: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -162,7 +176,7 @@ export default {
 .faded-enter-active,
 .faded-leave-active {
   //在离开和进入时候的动画时间
-  transition: all .6s;
+  transition: all 0.6s;
 }
 .faded-enter {
   //进入变成显示
@@ -175,7 +189,7 @@ export default {
 .fades-enter-active,
 .fades-leave-active {
   //在离开和进入时候的动画时间
-  transition: all .6s;
+  transition: all 0.6s;
 }
 .fades-enter {
   //进入变成显示

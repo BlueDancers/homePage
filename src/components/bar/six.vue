@@ -11,7 +11,7 @@
           <p class="title">{{ item.title }}</p>
           <p class="text">  &nbsp&nbsp&nbsp&nbsp{{ item.text }}</p>
           <p class="time">
-            <img src="../../../static/six/日历.png" alt="">
+            <img src="../../../static/six/calendar.png" alt="">
             <span>{{ item.time }}</span> 
           </p>
         </div>
@@ -176,6 +176,7 @@ export default {
     background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
     flex-wrap: wrap;
     color: rgb(86, 98, 112);
+
     .header {
       margin-top: 45px;
       .header-text {
@@ -254,9 +255,9 @@ export default {
     flex-wrap: wrap;
     color: rgb(86, 98, 112);
     .header {
-      margin-top: 45px;
+      margin-top: 20px;
       .header-text {
-        font-size: 45px;
+        font-size: 30px;
         text-align: center;
       }
     }
@@ -265,20 +266,20 @@ export default {
       justify-content: center;
       width: 100%;
       .article {
+        padding: 10px 0;
         background: white;
         border-radius: 8px;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         width: 85%;
-        margin-top: 40px;
+        margin-top: 10px;
         box-shadow: 0px 1px 8px rgb(114, 114, 114);
         .list {
           transition: all 1s;
           width: 85%;
           padding: 0px 20px 15px 20px;
           height: 50px;
-          border-radius: 8px;
           border-top: 1px dashed transparent;
           background: linear-gradient(white, white) padding-box,
             repeating-linear-gradient(
