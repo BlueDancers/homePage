@@ -36,17 +36,21 @@
 
 
       <div class="gotoGithub">
-        <button>
+        <button @click="gotoGithub">
           <img src="../../../static/one/github.png">
-          <span>查看更多项目</span>
+          <span >查看更多项目</span>
         </button>
       </div>
 
       <div class="direction">
         <div class="direction-list">
           <div>
-            <img src="../../../static/five/左.png" alt="" @click="tablebar('add')">
-            <img src="../../../static/five/右.png" alt=""  @click="tablebar('less')">
+            <div class="direction-add">
+              <img src="../../../static/five/左.png" alt="" @click="tablebar('add')">
+            </div>
+            <div class="direction-less">
+              <img src="../../../static/five/右.png" alt=""  @click="tablebar('less')">
+            </div>
           </div>
         </div>
        
@@ -107,6 +111,9 @@ export default {
           this.show--
         }
       }
+    },
+    gotoGithub() {
+      location.href = 'https://github.com/vkcyan'
     }
   }
 }
@@ -125,68 +132,281 @@ export default {
   justify-content: center;
   .pages {
     width: 100%;
-    .header {
-      margin-top: 15px;
-      text-align: center;
-      margin-bottom: 20px;
-      p {
-        font-size: 45px;
+    @media screen and (min-width: 375px) {
+      .header {
+        margin-top: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+        p {
+          font-size: 45px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 375px) {
+      .header {
+        margin-top: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+        p {
+          font-size: 30px;
+        }
       }
     }
     .card {
       .card-list {
-        .cards {
-          box-shadow: 0px 2px 10px 4px #6d6868a6;
-          background: white;
-          border-radius: 10px;
-          color: rgb(86, 98, 112);
-          position: absolute;
-          width: 60%;
-          height: 550px;
-          top: 13%;
-          left: 20%;
-          .card-list-image {
-            margin-top: 10px;
-            text-align: center;
-            img {
-              border-radius: 10px;
-              width: 600px;
-            }
-          }
-          .card-list-title {
-            margin-top: 20px;
-            p {
+        @media screen and (min-width: 1000px) {
+          .cards {
+            position: relative;
+            box-shadow: 0px 2px 10px 4px #6d6868a6;
+            background: white;
+            border-radius: 10px;
+            color: rgb(86, 98, 112);
+            position: absolute;
+            width: 60%;
+            height: 550px;
+            top: 13%;
+            left: 20%;
+            .card-list-image {
+              margin-top: 10px;
               text-align: center;
-              font-size: 20px;
-            }
-          }
-          .card-list-text {
-            margin: 30px 0;
-            display: flex;
-            justify-content: center;
-            .text {
-              padding: 0 20px;
-              width: 100%;
-              p {
-                line-height: 25px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-            }
-          }
-          .card-list-button {
-            display: flex;
-            justify-content: flex-end;
-            button {
-              background-color: white;
-              border: 1px solid #ffffff;
-              border-radius: 4px;
-              margin-right: 20px;
               img {
-                width: 30px;
-                height: 30px;
+                border-radius: 10px;
+                width: 600px;
               }
+            }
+            .card-list-title {
+              margin-top: 20px;
+              p {
+                text-align: center;
+                font-size: 20px;
+              }
+            }
+            .card-list-text {
+              margin: 30px 0;
+              display: flex;
+              justify-content: center;
+              .text {
+                padding: 0 20px;
+                width: 100%;
+                p {
+                  line-height: 25px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+            }
+            .card-list-button {
+              position: absolute;
+              bottom: 8px;
+              right: 3px;
+
+              button {
+                transition: all 0.5s;
+                background-color: white;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+                margin-right: 20px;
+                img {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
+            .card-list-button button:hover {
+              border: 1px solid #000000;
+            }
+          }
+        }
+        @media screen and (max-width: 999px) and (min-width: 500px) {
+          .cards {
+            position: relative;
+            box-shadow: 0px 2px 10px 4px #6d6868a6;
+            background: white;
+            border-radius: 10px;
+            color: rgb(86, 98, 112);
+            position: absolute;
+            width: 60%;
+            top: 13%;
+            left: 20%;
+            .card-list-image {
+              margin-top: 40px;
+              text-align: center;
+              img {
+                border-radius: 10px;
+                width: 90%;
+              }
+            }
+            .card-list-title {
+              margin-top: 20px;
+              p {
+                text-align: center;
+                font-size: 15px;
+              }
+            }
+            .card-list-text {
+              margin: 20px 0;
+              display: flex;
+              justify-content: center;
+              .text {
+                padding: 0 20px;
+                width: 100%;
+                p {
+                  line-height: 25px;
+                }
+              }
+            }
+            .card-list-button {
+              position: absolute;
+              bottom: 8px;
+              right: 3px;
+              button {
+                transition: all 0.5s;
+                background-color: white;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+                margin-right: 20px;
+                img {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
+            .card-list-button button:hover {
+              border: 1px solid #000000;
+            }
+          }
+        }
+        @media screen and (max-width: 499px) and (min-width: 321px) {
+          .cards {
+            position: relative;
+            box-shadow: 0px 2px 10px 2px #6d6868a6;
+            background: white;
+            border-radius: 8px;
+            color: rgb(86, 98, 112);
+            position: absolute;
+            width: 60%;
+            height: 500px;
+            top: 13%;
+            left: 20%;
+            .card-list-image {
+              margin-top: 40px;
+              text-align: center;
+              img {
+                border-radius: 10px;
+                width: 90%;
+              }
+            }
+            .card-list-title {
+              margin-top: 20px;
+              p {
+                text-align: center;
+                font-size: 15px;
+              }
+            }
+            .card-list-text {
+              margin: 20px 0;
+              display: flex;
+              justify-content: center;
+              .text {
+                padding: 0 20px;
+                width: 100%;
+                margin: 10px 0;
+                p {
+                  font-size: 13px;
+                  line-height: 25px;
+                  overflow: hidden;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                }
+              }
+            }
+            .card-list-button {
+              position: absolute;
+              bottom: 8px;
+              right: 3px;
+              button {
+                transition: all 0.5s;
+                background-color: white;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+                margin-right: 20px;
+                img {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
+            .card-list-button button:hover {
+              border: 1px solid #000000;
+            }
+          }
+        }
+        @media screen and (max-width: 320px) {
+          .cards {
+            position: relative;
+            box-shadow: 0px 2px 10px 2px #6d6868a6;
+            background: white;
+            border-radius: 8px;
+            color: rgb(86, 98, 112);
+            position: absolute;
+            width: 60%;
+            height: 420px;
+            top: 13%;
+            left: 20%;
+            .card-list-image {
+              margin-top: 40px;
+              text-align: center;
+              img {
+                border-radius: 10px;
+                width: 90%;
+              }
+            }
+            .card-list-title {
+              margin-top: 20px;
+              p {
+                text-align: center;
+                font-size: 15px;
+              }
+            }
+            .card-list-text {
+              margin: 20px 0;
+              display: flex;
+              justify-content: center;
+              .text {
+                padding: 0 20px;
+                width: 100%;
+                margin: 10px 0;
+                p {
+                  font-size: 12px;
+                  line-height: 20px;
+                  overflow: hidden;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                }
+              }
+            }
+            .card-list-button {
+              position: absolute;
+              bottom: 8px;
+              right: 3px;
+              button {
+                transition: all 0.5s;
+                background-color: white;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+                margin-right: 20px;
+                img {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
+            .card-list-button button:hover {
+              border: 1px solid #000000;
             }
           }
         }
@@ -195,37 +415,172 @@ export default {
     .gotoGithub {
       display: flex;
       justify-content: center;
+      align-items: center;
       position: relative;
       top: 580px;
       button {
+        display: inline-block;
         background-color: white;
         width: 100%;
         border: 0px;
         border-radius: 5px;
         width: 400px;
-        line-height: 40px;
+        font-size: 15px;
+        padding: 5px 0px;
+        background-color: rgba(0, 0, 0, 0);
+        transition: all 0.5s;
+        box-shadow: 0px 0px 5px #6e6e6e;
+        border: 1px white solid;
+        color: rgb(255, 255, 255);
         img {
           width: 30px;
           height: 30px;
         }
+        span {
+          padding-left: 5px;
+        }
       }
+    }
+
+    @media screen and (max-width: 999px) and (min-width: 500px) {
+      .gotoGithub {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 78%;
+        button {
+          display: inline-block;
+          background-color: white;
+          width: 100%;
+          border: 0px;
+          border-radius: 5px;
+          width: 60%;
+          max-width: 400px;
+          font-size: 15px;
+          padding: 5px 0px;
+          background-color: rgba(0, 0, 0, 0);
+          transition: all 0.5s;
+          box-shadow: 0px 0px 5px #6e6e6e;
+          border: 1px white solid;
+          color: rgb(255, 255, 255);
+          img {
+            width: 30px;
+            height: 30px;
+          }
+          span {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 499px) {
+      .gotoGithub {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 78%;
+        button {
+          display: inline-block;
+          background-color: white;
+          width: 100%;
+          border: 0px;
+          border-radius: 5px;
+          width: 60%;
+          max-width: 400px;
+          font-size: 15px;
+          padding: 5px 0px;
+          background-color: rgba(0, 0, 0, 0);
+          transition: all 0.5s;
+          box-shadow: 0px 0px 5px #6e6e6e;
+          border: 1px white solid;
+          color: rgb(255, 255, 255);
+          img {
+            width: 30px;
+            height: 30px;
+          }
+          span {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 320px) {
+      .gotoGithub {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 75%;
+        button {
+          display: inline-block;
+          background-color: white;
+          width: 100%;
+          border: 0px;
+          border-radius: 5px;
+          width: 60%;
+          max-width: 400px;
+          font-size: 15px;
+          padding: 3px 0px;
+          background-color: rgba(0, 0, 0, 0);
+          transition: all 0.5s;
+          box-shadow: 0px 0px 5px #6e6e6e;
+          border: 1px white solid;
+          color: rgb(255, 255, 255);
+          img {
+            width: 30px;
+            height: 30px;
+          }
+          span {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+
+    .gotoGithub button:hover {
+      box-shadow: 0px 2px 5px #a19d9d;
+      color: black;
+      border: 1px white solid;
+      background-color: white;
     }
     .direction {
       position: absolute;
       width: 100%;
-      bottom: 5%;
+      bottom: 47%;
       .direction-list {
         display: flex;
         justify-content: center;
         div {
           display: flex;
           justify-content: space-between;
-          width: 90%;
-          img {
-            height: 50px;
+          width: 92%;
+          transition: all 1s;
+          .direction-add {
+            img {
+              transition: all 0.5s;
+              height: 50px;
+            }
+          }
+          .direction-less {
+            position: relative;
+            left: 10px;
+            img {
+              transition: all 0.5s;
+              position: absolute;
+              right: 0px;
+              height: 50px;
+            }
           }
         }
       }
+    }
+    .direction-add img:hover {
+      padding-left: 10px;
+    }
+    .direction-less img:hover {
+      padding-right: 10px;
     }
   }
 }
