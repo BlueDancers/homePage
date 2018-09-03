@@ -96,7 +96,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 20px;
       margin-bottom: 30px;
       .header-text {
         p {
@@ -218,7 +218,7 @@ export default {
       .cardlist {
         //基本图标主题布局设置
         position: relative;
-        bottom: 40px;
+        bottom: 45px;
         width: 80%;
         display: flex;
         justify-content: center;
@@ -299,13 +299,14 @@ export default {
         }
         .isShowText {
           position: relative;
-          bottom: -50px;
+          bottom: -60px;
           text-align: center;
           opacity: 0;
           transition: all 0.5s;
           transition-timing-function: ease-out;
           p {
-            line-height: 20px;
+            font-size: 15px;
+            line-height: 18px;
             border-radius: 5px;
             color: black;
             background-color: white;

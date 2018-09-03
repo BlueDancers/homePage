@@ -6,7 +6,7 @@
       </div>
       <div class="main">
         <div class="main-selfIntroduction">
-          <p class="selfIntroduction">前端工程师,balibalia</p>
+          <p class="selfIntroduction">web工程师,主攻以node为基石的大前端</p>
         </div>
         <div class="main-relevant">
           <div class="relevant-flex">

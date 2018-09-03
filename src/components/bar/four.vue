@@ -3,12 +3,12 @@
     <div class="four-page">
       <div class="leftpage">
         <div class="header">
-          <p>技能清单</p> 
+          <p>技能清单</p>
         </div>
-        <div class="mainCover">   
+        <div class="mainCover">
           <div class="cover">
             <img src="../../../static/one/user.jpg" alt="">
-            <p>有灵感再补</p>
+            <p>技能清单</p>
           </div>
         </div>
         <div class="main">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-    
+
     </div>
   </div>
 </template>
@@ -71,7 +71,7 @@ export default {
         },
         {
           title: '后端框架',
-          text: 'koa2 / SSH(Spring SpringMVC Hibernate)'
+          text: 'koa2 / SSM(Spring SpringMVC mybatis)'
         },
         {
           title: '单元测试',
@@ -143,7 +143,7 @@ export default {
       width: 90%; //整体是页面的80%
       height: 700px;
       min-height: 650px;
-      display: flex; //定制css
+      display: flex;
       .leftpage {
         box-shadow: -5px 2px 20px 1px #4d4a4a; //左页
         z-index: 10; //覆盖右页
@@ -184,12 +184,13 @@ export default {
       //下面为公共css
       .rigthpage,
       .leftpage {
-        height: 90%;
+        height: 680px;
         position: absolute;
         color: black;
         background: white;
         width: 45%;
         .header {
+
           width: 80%;
           margin-top: 40px;
           display: inline-block;
@@ -222,6 +223,10 @@ export default {
               width: 200px;
               height: 200px;
               border-radius: 50%;
+            }
+            p {
+              font-size: 30px;
+              -webkit-transform: scaleX(-1);
             }
           }
         }

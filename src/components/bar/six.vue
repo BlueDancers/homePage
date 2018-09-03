@@ -4,7 +4,7 @@
       <div class="header-text">
         <p>我的文章</p>
       </div>
-    </div> 
+    </div>
     <div class="articleList">
       <div class="article">
         <div class="list" v-for="(item, index) in list" :key="index" @click="goto(item.url)">
@@ -12,7 +12,7 @@
           <p class="text">  &nbsp&nbsp&nbsp&nbsp{{ item.text }}</p>
           <p class="time">
             <img src="../../../static/six/calendar.png" alt="">
-            <span>{{ item.time }}</span> 
+            <span>{{ item.time }}</span>
           </p>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default {
             'https://github.com/vkcyan/text/blob/master/JavaScript/call%20apply%E7%9A%84%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0.md'
         },
         {
-          title: 'Vue路由钩子的总结',
+          title: 'webpack4+vue搭建CLI',
           text:
             '使用vue已经有一段是时间了,这不断的写项目里面,基本上清楚了vue的这种与jq完成不一样的思想,越是研究越是感觉作者之强大,对vue SPA单页面里面最常用的vue-router组件,今天就谈谈这个,我使用的经验vue-router作为vue里面最基础的服务,学习一段时间,对遇到的需求进行一些总结使用vue-cli作为开发前提 vue-router已经配置好了',
           time: '2018-07-17',

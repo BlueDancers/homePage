@@ -1,12 +1,12 @@
 <template>
-  <div class="five" @touchstart="touchstart" @touchend="touchend">
+  <div class="five" @mousewheel="handleScroll" @touchstart="touchstart" @touchend="touchend" @mousedown="mousedown" @mouseup="mouseup">
     <div class="pages">
       <div class="header">
         <p>项目与作品</p>
       </div>
       <div class="card">
         <div class="card-list">
-          <transition-group name="fade"> 
+          <transition-group :name="isfade">
           <div class="cards" v-for="(item, index) in list" :key="index" v-show="index == show">
               <div class="card-list-image">
                 <img :src="item.img">
@@ -38,19 +38,22 @@
           <span >查看更多项目</span>
         </button>
       </div>
-
+      <!-- pc端左右按钮 -->
       <div class="direction">
         <div class="direction-list">
           <div>
-            <div class="direction-add">
-              <img src="../../../static/five/left.png" alt="" @click="tablebar('add')">
+            <div class="direction-add" @click="tablebar('add')">
+              <img src="../../../static/five/left.png" alt="">
             </div>
-            <div class="direction-less">
-              <img src="../../../static/five/right.png" alt=""  @click="tablebar('less')">
+            <div class="direction-less" @click="tablebar('less')">
+              <img src="../../../static/five/right.png" alt="">
             </div>
           </div>
         </div>
-       
+      </div>
+      <!-- 移动端按钮 -->
+      <div class="mobileButton" v-show="mobileButton">
+          <img src="../../../static/five/jiantou.png" alt="">
       </div>
     </div>
   </div>
@@ -58,11 +61,16 @@
 
 <script>
 export default {
+  mounted () {
+    this.isfade = ''
+  },
   data() {
     return {
-      show: 0,
-      mousedownevent: 0,
-      mouseupevent: 0,
+      show: 0,          //控制卡片切换
+      mousedownevent: 0,//鼠标/手指按下记录
+      mouseupevent: 0,  //鼠标/手指松开记录
+      isfade: '',       //切换动画
+      mobileButton: true,
       list: [
         {
           img: '../../../static/five/mpvue.png',
@@ -97,6 +105,7 @@ export default {
   methods: {
     tablebar(status) {
       if (status === 'add') {
+        this.isfade = "fade"
         if (this.show == 2) {
           this.show = 0
         } else {
@@ -104,6 +113,7 @@ export default {
         }
       }
       if (status === 'less') {
+        this.isfade = "fades"
         if (this.show == 0) {
           this.show = 2
         } else {
@@ -114,6 +124,7 @@ export default {
     gotoGithub() {
       location.href = 'https://github.com/vkcyan'
     },
+    // 移动端手势事件
     touchstart(e) {
       this.mousedownevent = e.targetTouches[0].clientX
     },
@@ -121,14 +132,32 @@ export default {
       this.mouseupevent = e.changedTouches[0].clientX
 
       let result = this.mouseupevent - this.mousedownevent
-      console.log(result)
 
       if (result > 0 && result > 80) {
-        this.tablebar('add')
-      }
-      if (result < 0 && result < -80) {
         this.tablebar('less')
       }
+      if (result < 0 && result < -80) {
+        this.tablebar('add')
+      }
+      this.mobileButton = false //只要切换了,就隐藏移动端箭头
+    },
+    // pc端手势事件
+    mousedown (e) {
+      this.mousedownevent = e.screenX
+    },
+    mouseup (e) {
+      this.mouseupevent = e.screenX
+      let mousedistance = this.mousedownevent - this.mouseupevent
+
+      if (mousedistance > 40)  {
+        this.tablebar('add')
+      }
+      if (mousedistance < -40 ) {
+        this.tablebar('less')
+      }
+    },
+    handleScroll (e) {
+      this.deltay = e.deltaY || e
     }
   }
 }
@@ -136,6 +165,7 @@ export default {
 
 <style lang="less" scoped>
 .five {
+  user-select: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -171,6 +201,7 @@ export default {
       .card-list {
         @media screen and (min-width: 1000px) {
           .cards {
+            cursor:pointer;
             position: relative;
             box-shadow: 0px 2px 10px 4px #6d6868a6;
             background: white;
@@ -217,6 +248,7 @@ export default {
               right: 3px;
 
               button {
+                cursor:pointer;
                 transition: all 0.5s;
                 background-color: white;
                 border: 1px solid #ffffff;
@@ -320,7 +352,7 @@ export default {
               }
             }
             .card-list-text {
-              margin: 20px 0;
+              margin: 20px 10px;
               display: flex;
               justify-content: center;
               .text {
@@ -331,9 +363,8 @@ export default {
                   font-size: 13px;
                   line-height: 25px;
                   overflow: hidden;
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 2;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
                 }
               }
             }
@@ -490,66 +521,12 @@ export default {
     }
     @media screen and (max-width: 499px) {
       .gotoGithub {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 70%;
-        button {
-          display: inline-block;
-          background-color: white;
-          width: 100%;
-          border: 0px;
-          border-radius: 5px;
-          width: 60%;
-          max-width: 400px;
-          font-size: 15px;
-          padding: 5px 0px;
-          background-color: rgba(0, 0, 0, 0);
-          transition: all 0.5s;
-          box-shadow: 0px 0px 5px #6e6e6e;
-          border: 1px white solid;
-          color: rgb(255, 255, 255);
-          img {
-            width: 30px;
-            height: 30px;
-          }
-          span {
-            padding-left: 5px;
-          }
-        }
+        display: none;
       }
     }
     @media screen and (max-width: 320px) {
       .gotoGithub {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 68%;
-        button {
-          display: inline-block;
-          background-color: white;
-          width: 100%;
-          border: 0px;
-          border-radius: 5px;
-          width: 60%;
-          max-width: 400px;
-          font-size: 15px;
-          padding: 3px 0px;
-          background-color: rgba(0, 0, 0, 0);
-          transition: all 0.5s;
-          box-shadow: 0px 0px 5px #6e6e6e;
-          border: 1px white solid;
-          color: rgb(255, 255, 255);
-          img {
-            width: 30px;
-            height: 30px;
-          }
-          span {
-            padding-left: 5px;
-          }
-        }
+        display: none;
       }
     }
 
@@ -562,6 +539,27 @@ export default {
     @media screen and (max-width: 499px) {
       .direction {
         display: none;
+      }
+      .mobileButton {
+        position: absolute;
+        top: 450px;
+        left: 150px;
+        animation: movingArrow 2s linear 0s infinite normal none;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      @keyframes movingArrow {
+        0% {
+          left: 140px;
+        }
+        50% {
+          left: 160px;
+        }
+        100% {
+          left: 140px;
+        }
       }
     }
     @media screen and (min-width: 500px) {
@@ -596,6 +594,9 @@ export default {
           }
         }
       }
+      .mobileButton {
+        display: none
+      }
     }
 
     .direction-add img:hover {
@@ -623,9 +624,11 @@ export default {
   transition: all 1s;
 }
 .fades-enter {
-  transform: translateX(1100px);
+  transform: translateX(-1100px);
+  opacity: 0;
 }
 .fades-leave-to {
-  transform: translateX(-1100px);
+  transform: translateX(1100px);
+  opacity: 0;
 }
 </style>
