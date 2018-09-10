@@ -1,20 +1,26 @@
 <template>
-  <div class="one">
+  <div class="one" @mousewheel="handleScroll">
     <div class="main">
       <div class="main_photo_text">
         <div class="main_photo">
           <div class="photo">
             <img src="../../../static/one/user.jpg" alt=" ">
           </div>
-          
+
         </div>
         <div class="main_text">
           <p class="main_text_name">vkcyan</p>
           <p class="main_text_Introduction">前端新人,请多指教</p>
         </div>
       </div>
-      <div class="main_text">
+      <div class="main_img">
         <img v-for="(item,index) in imgs" :key="index" :src="item.img" alt="" @click="gotoLocation(item.address)">
+      </div>
+      <div class="gotoresume" v-show="resume" @click="gotoresume">
+        <div>
+          <img src="../../../static/one/resume.png" alt="" srcset="">
+          <span>文字简历</span>
+        </div>
       </div>
     </div>
   </div>
@@ -24,6 +30,7 @@
 export default {
   data() {
     return {
+      resume: false,
       imgs: [
         {
           img: '../../../static/one/github.png',
@@ -48,6 +55,12 @@ export default {
   methods: {
     gotoLocation(e) {
       location.href = e
+    },
+    gotoresume () {
+      location.href = 'https://vkcyan.github.io/about/'
+    },
+    handleScroll () {
+      this.resume = true
     }
   }
 }
@@ -82,7 +95,7 @@ export default {
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             opacity: 0;
-            animation: emerge 1.5s ease-in 0.5s 1 normal forwards;
+            animation: emerge 1s ease-in 0.5s 1 normal forwards;
             @keyframes emerge {
               from {
                 opacity: 0;
@@ -121,20 +134,22 @@ export default {
             margin: 20px;
             line-height: 60px;
             opacity: 0;
-            animation: emerge 1.5s ease-in 0.5s 1 normal forwards;
+            animation: imgemerge 1.5s ease-in 0.3s 1 normal forwards;
           }
           .main_text_Introduction {
+            opacity: 0;
             font-size: 15px;
             display: flex;
             justify-content: center;
             color: #999;
             line-height: 50px;
+            animation: imgemerge 1.5s ease-in 0.5s 1 normal forwards;
           }
         }
       }
-      .main_text {
+      .main_img {
         opacity: 0;
-        animation: imgemerge 0.8s ease-in 0.2s 1 normal forwards;
+        animation: imgemerge 1.5s ease-in 0.5s 1 normal forwards;
         @keyframes imgemerge {
           from {
             opacity: 0;
@@ -145,8 +160,7 @@ export default {
         }
         img {
           width: 35px;
-          margin: 0 20px;
-          margin-top: 20px;
+          margin:20px;
           cursor: pointer;
         }
         img:nth-child(3) {
@@ -234,7 +248,7 @@ export default {
           }
         }
       }
-      .main_text {
+      .main_img {
         opacity: 0;
         animation: imgemerge 0.8s ease-in 0.2s 1 normal forwards;
         @keyframes imgemerge {
@@ -248,7 +262,7 @@ export default {
         img {
           width: 35px;
           margin: 0 20px;
-          margin-top: 20px;
+          margin: 20px;
           cursor: pointer;
         }
         img:nth-child(3) {
@@ -256,6 +270,42 @@ export default {
         }
       }
     }
+  }
+}
+.gotoresume {
+  opacity: 0;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px rgb(238, 236, 236);
+  animation: resume 2.5s ease-in 0.5s 1 normal forwards;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgb(83, 82, 82);
+  border-radius: 5px;
+  div {
+    img {
+      width: 30px;
+    }
+    span {
+      transition: all 0.5s;
+      color: #999;
+    }
+  }
+}
+.gotoresume:hover {
+  box-shadow: 1px 2px 3px #999;
+  background: white;
+  border: 1px solid rgb(211, 205, 205);
+  span {
+    color: black;
+  }
+}
+@keyframes resume {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>
