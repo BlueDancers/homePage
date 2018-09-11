@@ -1,5 +1,5 @@
 <template>
-  <div class="one" @mousewheel="handleScroll">
+  <div class="one" @mousewheel="handleScroll" @touchmove="touchmove">
     <div class="main">
       <div class="main_photo_text">
         <div class="main_photo">
@@ -60,6 +60,9 @@ export default {
       location.href = 'https://vkcyan.github.io/about/'
     },
     handleScroll () {
+      this.resume = true
+    },
+    touchmove () {
       this.resume = true
     }
   }
