@@ -1,22 +1,13 @@
-# my_web
+# vkcyan的简历
 
-> my_web
+www.vkcyan.top
 
-## Build Setup
+​	这是一个web版简历,与2018-8-19号闲暇时间写的.使用的是vue,因为大三9月份实习,所以有了这个,使用媒体查询完成的响应式,所以css写的有点乱
 
-``` bash
-# install dependencies
-npm install
+​	后期的部署使用的是阿里云的`轻量级云服务器`,学生价10块钱一个月,非常便宜,在云服务里面使用`docker`启动`nginx`,静态文件上传,外网就可以访问了
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-"# homePage" 
+
+欢迎个人clone,打造自己的web简历(っ•̀ω•́)っ✎⁾⁾ 

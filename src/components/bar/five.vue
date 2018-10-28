@@ -462,7 +462,7 @@ export default {
       justify-content: center;
       align-items: center;
       position: relative;
-      top: 580px;
+      top: 630px;
       button {
         display: inline-block;
         background-color: white;
