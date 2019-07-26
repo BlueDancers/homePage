@@ -4,21 +4,26 @@
       <div class="main_photo_text">
         <div class="main_photo">
           <div class="photo">
-            <img src="../../../static/one/user.jpg" alt=" ">
+            <img src="../../../static/one/user.jpg" alt=" " />
           </div>
-
         </div>
         <div class="main_text">
           <p class="main_text_name">vkcyan</p>
-          <p class="main_text_Introduction">前端新人,请多指教</p>
+          <p class="main_text_Introduction">请多指教</p>
         </div>
       </div>
       <div class="main_img">
-        <img v-for="(item,index) in imgs" :key="index" :src="item.img" alt="" @click="gotoLocation(item.address)">
+        <img
+          v-for="(item, index) in imgs"
+          :key="index"
+          :src="item.img"
+          alt=""
+          @click="gotoLocation(item.address)"
+        />
       </div>
       <div class="gotoresume" v-show="resume" @click="gotoresume">
         <div>
-          <img src="../../../static/one/resume.png" alt="" srcset="">
+          <img src="../../../static/one/resume.png" alt="" srcset="" />
           <span>文字简历</span>
         </div>
       </div>
@@ -41,8 +46,8 @@ export default {
           address: 'https://vkcyan.github.io/'
         },
         {
-          img: '../../../static/one/bokeyuan.png',
-          address: 'https://www.cnblogs.com/wuvkcyan/'
+          img: '../../../static/one/juejin.png',
+          address: 'https://juejin.im/user/5a92634cf265da4e92684558'
         },
         {
           img: '../../../static/one/zhihu.png',
@@ -56,13 +61,13 @@ export default {
     gotoLocation(e) {
       location.href = e
     },
-    gotoresume () {
+    gotoresume() {
       location.href = 'https://vkcyan.github.io/about/'
     },
-    handleScroll () {
+    handleScroll() {
       this.resume = true
     },
-    touchmove () {
+    touchmove() {
       this.resume = true
     }
   }
@@ -163,7 +168,7 @@ export default {
         }
         img {
           width: 35px;
-          margin:20px;
+          margin: 20px;
           cursor: pointer;
         }
         img:nth-child(3) {

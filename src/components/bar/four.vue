@@ -7,16 +7,14 @@
         </div>
         <div class="mainCover">
           <div class="cover">
-            <img src="../../../static/one/user.jpg" alt="">
+            <img src="../../../static/one/user.jpg" alt="" />
             <p>技能清单</p>
           </div>
         </div>
         <div class="main">
           <div class="list-text">
-            <div class="list" v-for="(item,index) in leftData" :key="index">
-              <p class="text">
-                {{ item.title }} : {{ item.text }}
-              </p>
+            <div class="list" v-for="(item, index) in leftData" :key="index">
+              <p class="text">{{ item.title }} : {{ item.text }}</p>
             </div>
           </div>
         </div>
@@ -27,15 +25,12 @@
         </div>
         <div class="main">
           <div class="list-text">
-            <div class="list" v-for="(item,index) in rigthData" :key="index">
-              <p class="text">
-                ○ {{ item.text }}
-              </p>
+            <div class="list" v-for="(item, index) in rigthData" :key="index">
+              <p class="text">○ {{ item.text }}</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -47,11 +42,11 @@ export default {
       leftData: [
         {
           title: 'Web开发',
-          text: 'JavaScript / html5 / css3 / 小程序 /jquery'
+          text: 'JavaScript / Typescript / html5 / css3 / 小程序 / jquery'
         },
         {
           title: '前端框架',
-          text: 'Vue / mpvue'
+          text: 'Vue / mpvue / React / Taro / React Native'
         },
         {
           title: 'UI框架',
@@ -190,7 +185,6 @@ export default {
         background: white;
         width: 45%;
         .header {
-
           width: 80%;
           margin-top: 40px;
           display: inline-block;
