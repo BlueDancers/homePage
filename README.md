@@ -1,16 +1,29 @@
-# vkcyan的web简历
+# page
 
-### 2018-8-19
+## Project setup
+```
+npm install
+```
 
-[我要看看](https://vkcyan.github.io/homePage/)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-​	这是一个web版简历,与2018-8-19号闲暇时间写的.使用的是vue,因为大三9月份实习,所以有了这个,使用媒体查询完成的响应式,所以css写的有点乱
+### Compiles and minifies for production
+```
+npm run build
+```
 
-​	后期的部署使用的是阿里云的`轻量级云服务器`,学生价10块钱一个月,非常便宜,在云服务里面使用`docker`启动`nginx`,静态文件上传,外网就可以访问了
+### Run your tests
+```
+npm run test
+```
 
+### Lints and fixes files
+```
+npm run lint
+```
 
-
-### 2019-7-26
-
-​	转眼间一年就过去了,这一年还是有很大提升的,已经不再是当初的小白了,这个简历也别用服务器了,浪费钱,直接用github Page部署一下就行了,如果有幸你看到了,或者你也在找工作,可以clone下来看看,说不定还能用,具体代码就别看了,当时还是小白,代码写的特别烂
-
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

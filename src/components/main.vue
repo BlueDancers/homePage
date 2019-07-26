@@ -1,32 +1,43 @@
 <template>
-  <div id="main" @mousewheel="handleScroll" @mousedown="mousedown" @mouseup="mouseup" @touchstart="touchstart" @touchend="touchend">
+  <div
+    id="main"
+    @mousewheel="handleScroll"
+    @mousedown="mousedown"
+    @mouseup="mouseup"
+    @touchstart="touchstart"
+    @touchend="touchend"
+  >
     <div class="pages">
-        <transition :name="deltay > 0?'faded':'fades'">
-          <one v-show="page == 1"></one>
-        </transition>
-        <transition :name="deltay > 0?'faded':'fades'">
-          <two v-show="page == 2"></two>
-        </transition>
-        <transition :name="deltay > 0?'faded':'fades'">
-          <three v-show="page == 3"></three>
-        </transition>
-        <transition :name="deltay > 0?'faded':'fades'">
-          <four v-show="page == 4"></four>
-        </transition>
-        <transition :name="deltay > 0?'faded':'fades'">
-          <five v-show="page == 5"></five>
-        </transition>
-        <transition :name="deltay > 0?'faded':'fades'">
-          <six v-show="page == 6"></six>
-        </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <one v-show="page == 1"></one>
+      </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <two v-show="page == 2"></two>
+      </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <three v-show="page == 3"></three>
+      </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <four v-show="page == 4"></four>
+      </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <five v-show="page == 5"></five>
+      </transition>
+      <transition :name="deltay > 0 ? 'faded' : 'fades'">
+        <six v-show="page == 6"></six>
+      </transition>
     </div>
     <div class="left">
       <ul>
-        <li v-for="items in pages" :class="items == page?'active':' '" :key="items">
+        <li
+          v-for="items in pages"
+          :class="items == page ? 'active' : ' '"
+          :key="items"
+        >
           <span @click="gotoPage(items)"></span>
         </li>
       </ul>
-    </div>    
+    </div>
   </div>
 </template>
 
@@ -62,7 +73,7 @@ export default {
     throttle(method) {
       //函数节流
       clearTimeout(method.tId)
-      method.tId = setTimeout(function() {
+      method.tId = setTimeout(function () {
         method()
       }, 200)
     },
@@ -98,7 +109,7 @@ export default {
     },
     mousedown(e) {
       this.mousedownevent = e.screenY
-      
+
     },
     mouseup(e) {
       this.mouseupevent = e.screenY
@@ -125,7 +136,7 @@ export default {
       if (result > 0 && result > 80) {
         this.throttle(this.scrollevent)
       }
-      if(result < 0 && result < -80){
+      if (result < 0 && result < -80) {
         this.throttle(this.scrollevent)
       }
     }

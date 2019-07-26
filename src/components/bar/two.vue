@@ -10,9 +10,13 @@
         </div>
         <div class="main-relevant">
           <div class="relevant-flex">
-            <div class="relevant-icon-text" v-for="(items,index) in information" :key="index">
+            <div
+              class="relevant-icon-text"
+              v-for="(items, index) in information"
+              :key="index"
+            >
               <div>
-                <img :src="items.img" alt="">
+                <img :src="items.img" alt="" />
               </div>
               <div>
                 <p>{{ items.text }}</p>
@@ -32,27 +36,27 @@ export default {
     return {
       information: [
         {
-          img: '../../../static/two/birthday.png',
+          img: require('../../assets/two/birthday.png'),
           text: '1998.11.30'
         },
         {
-          img: '../../../static/two/university.png',
+          img: require('../../assets/two/university.png'),
           text: '专科 计算机应用'
         },
         {
-          img: '../../../static/two/hefei.png',
+          img: require('../../assets/two/hefei.png'),
           text: '安徽 合肥'
         },
         {
-          img: '../../../static/two/phone.png',
+          img: require('../../assets/two/phone.png'),
           text: '173xxxx6635(安徽)'
         },
         {
-          img: '../../../static/two/mailbox.png',
+          img: require('../../assets/two/mailbox.png'),
           text: 'wu.vkcyan@gmail.com'
         },
         {
-          img: '../../../static/two/award.png',
+          img: require('../../assets/two/award.png'),
           text: '先电云计算大赛全国一等奖'
         }
       ]

@@ -4,7 +4,7 @@
       <div class="main_photo_text">
         <div class="main_photo">
           <div class="photo">
-            <img src="../../../static/one/user.jpg" alt=" " />
+            <img src="../../assets/one/user.jpg" alt=" " />
           </div>
         </div>
         <div class="main_text">
@@ -23,7 +23,7 @@
       </div>
       <div class="gotoresume" v-show="resume" @click="gotoresume">
         <div>
-          <img src="../../../static/one/resume.png" alt="" srcset="" />
+          <img src="../../assets/one/resume.png" alt="" srcset="" />
           <span>文字简历</span>
         </div>
       </div>
@@ -38,19 +38,19 @@ export default {
       resume: false,
       imgs: [
         {
-          img: '../../../static/one/github.png',
+          img: require('../../assets/one/github.png'),
           address: 'https://github.com/vkcyan'
         },
         {
-          img: '../../../static/one/blog.png',
+          img: require('../../assets/one/blog.png'),
           address: 'https://vkcyan.github.io/'
         },
         {
-          img: '../../../static/one/juejin.png',
+          img: require('../../assets/one/juejin.png'),
           address: 'https://juejin.im/user/5a92634cf265da4e92684558'
         },
         {
-          img: '../../../static/one/zhihu.png',
+          img: require('../../assets/one/zhihu.png'),
           address:
             'https://www.zhihu.com/people/zhang-zui-zhang-zui-zuo-zuo-zuo-zuo-zuo/activities'
         }
@@ -62,7 +62,7 @@ export default {
       location.href = e
     },
     gotoresume() {
-      location.href = 'https://vkcyan.github.io/about/'
+      location.href = 'https://vkcyan.github.io'
     },
     handleScroll() {
       this.resume = true

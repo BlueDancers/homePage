@@ -7,12 +7,12 @@
     </div>
     <div class="main">
       <div class="cardlist">
-        <div class="list" v-for="(item,index) in cards" :key="index">
+        <div class="list" v-for="(item, index) in cards" :key="index">
           <div class="isShowText">
-            <p>{{ item.text }}</p> 
+            <p>{{ item.text }}</p>
           </div>
           <div class="list-img" @mouseleave="mouseleaves">
-            <img :src="item.img" alt="">
+            <img :src="item.img" alt="" />
           </div>
         </div>
       </div>
@@ -26,35 +26,35 @@ export default {
     return {
       cards: [
         {
-          img: '../../../static/three/html.png',
+          img: require('../../assets/three/html.png'),
           text: 'HTML'
         },
         {
-          img: '../../../static/three/css3.png',
+          img: require('../../assets/three/css3.png'),
           text: 'CSS3'
         },
         {
-          img: '../../../static/three/javascript.png',
+          img: require('../../assets/three/javascript.png'),
           text: 'JavaScript,ES6'
         },
         {
-          img: '../../../static/three/java.png',
+          img: require('../../assets/three/java.png'),
           text: 'Java,JavaWeb'
         },
         {
-          img: '../../../static/three/wecart.jpg',
+          img: require('../../assets/three/wecart.jpg'),
           text: '微信小程序'
         },
         {
-          img: '../../../static/three/node.svg',
+          img: require('../../assets/three/node.svg'),
           text: 'Node.js'
         },
         {
-          img: '../../../static/three/database.png',
+          img: require('../../assets/three/database.png'),
           text: 'mysql,mongoDB'
         },
         {
-          img: '../../../static/three/docker.png',
+          img: require('../../assets/three/docker.png'),
           text: 'Docker'
         }
       ]
@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     mouseleaves() {
-      console.log('鼠标离开了')
     }
   }
 }
@@ -105,7 +104,7 @@ export default {
       }
     }
   }
-  
+
   .main {
     width: 100%;
     display: flex;

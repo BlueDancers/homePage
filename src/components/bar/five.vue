@@ -23,7 +23,7 @@
               </div>
               <div class="card-list-button">
                 <button>
-                  <img src="../../../static/five/look.png">
+                  <img src="../../assets/five/look.png">
                 </button>
               </div>
           </div>
@@ -34,7 +34,7 @@
 
       <div class="gotoGithub">
         <button @click="gotoGithub">
-          <img src="../../../static/one/github.png">
+          <img src="../../assets/one/github.png">
           <span >查看更多项目</span>
         </button>
       </div>
@@ -43,17 +43,17 @@
         <div class="direction-list">
           <div>
             <div class="direction-add" @click="tablebar('add')">
-              <img src="../../../static/five/left.png" alt="">
+              <img src="../../assets/five/left.png" alt="">
             </div>
             <div class="direction-less" @click="tablebar('less')">
-              <img src="../../../static/five/right.png" alt="">
+              <img src="../../assets/five/right.png" alt="">
             </div>
           </div>
         </div>
       </div>
       <!-- 移动端按钮 -->
       <div class="mobileButton" v-show="mobileButton">
-          <img src="../../../static/five/jiantou.png" alt="">
+          <img src="../../assets/five/jiantou.png" alt="">
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ export default {
       mobileButton: true,
       list: [
         {
-          img: '../../../static/five/mpvue.png',
+          img: require('../../assets/five/mpvue.png'),
           title: 'mpvue+ wafer2(koa2 + kenx)',
           text: [
             '使用腾讯提供的wafer2服务端SDK',
@@ -83,7 +83,7 @@ export default {
           ]
         },
         {
-          img: '../../../static/five/cloud.png',
+          img: require('../../assets/five/cloud.png'),
           title: '分布式存储系统Swift + ssh框架 + jquery + bootstrap',
           text: [
             '负责模块: 新建 删除 重命名 删除 上传 删除 下载 文件分享 创建群组 视图切换等等',
@@ -92,7 +92,7 @@ export default {
           ]
         },
         {
-          img: '../../../static/five/o2o.png',
+          img: require('../../assets/five/o2o.png'),
           title: 'O2O商城',
           text: [
             '这是一个完整的商城小程序,使用原生语言开发,负责前端所有ui与逻辑,比如登录, 下单, 预约 ,购物车',

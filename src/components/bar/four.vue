@@ -7,7 +7,7 @@
         </div>
         <div class="mainCover">
           <div class="cover">
-            <img src="../../../static/one/user.jpg" alt="" />
+            <img src="../../assets/one/user.jpg" alt="" />
             <p>技能清单</p>
           </div>
         </div>

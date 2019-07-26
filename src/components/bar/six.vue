@@ -7,11 +7,16 @@
     </div>
     <div class="articleList">
       <div class="article">
-        <div class="list" v-for="(item, index) in list" :key="index" @click="goto(item.url)">
+        <div
+          class="list"
+          v-for="(item, index) in list"
+          :key="index"
+          @click="goto(item.url)"
+        >
           <p class="title">{{ item.title }}</p>
-          <p class="text">  &nbsp&nbsp&nbsp&nbsp{{ item.text }}</p>
+          <p class="text">{{ item.text }}</p>
           <p class="time">
-            <img src="../../../static/six/calendar.png" alt="">
+            <img src="../../assets/six/calendar.png" alt="" />
             <span>{{ item.time }}</span>
           </p>
         </div>
